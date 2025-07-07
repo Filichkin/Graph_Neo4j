@@ -3,6 +3,8 @@ import os
 from connect_database import Neo4jConnection
 from dotenv import load_dotenv
 
+from queries import queries_data_upload
+
 
 load_dotenv()
 
@@ -24,7 +26,8 @@ def main():
         password=os.getenv('DB_PASSWORD')
         )
     conn.query('CREATE OR REPLACE DATABASE graphDb')
-    conn.query(query_string, db=os.getenv('DB_NAME'))
+    for query_string in queries_data_upload:
+        conn.query(query_string, db=os.getenv('DB_NAME'))
 
 
 if __name__ == '__main__':
