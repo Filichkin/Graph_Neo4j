@@ -20,7 +20,7 @@ class Neo4jConnection:
                 )
             response = list(session.run(query))
         except Exception as e:
-            print("Query failed:", e)
+            print('Query failed:', e)
         finally:
             if session is not None:
                 session.close()
