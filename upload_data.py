@@ -3,19 +3,10 @@ import os
 from connect_database import Neo4jConnection
 from dotenv import load_dotenv
 
-from queries import queries_data_upload
+from queries.upload_queries import queries_data_upload
 
 
 load_dotenv()
-
-query_string = '''
-LOAD CSV WITH HEADERS FROM
-'file:///Product.csv'
-AS line FIELDTERMINATOR ','
-MERGE (product:Product {productID: line.ProductID})
-  ON CREATE SET product.productName = line.ProductName,
-  product.UnitPrice = toFloat(line.UnitPrice);
-'''
 
 
 def main():
