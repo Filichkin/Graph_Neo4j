@@ -20,3 +20,5 @@ AS line FIELDTERMINATOR ','
 MERGE (reader:Reader {readerID: line.name})
   ON CREATE SET reader.nickname = line.nickname,reader.email = line.email;
 '''
+
+articles = [query_category, query_articles, query_reader]
