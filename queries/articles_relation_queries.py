@@ -15,3 +15,5 @@ MATCH (reader:Reader {readerID: line.name})
 MATCH (article:Article {articleID: line.title_article})
 CREATE (reader)-[:READ]->(article);
 '''
+
+relations = [query_category_articles, query_read_articles]
